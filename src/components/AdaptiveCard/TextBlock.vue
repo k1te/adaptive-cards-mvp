@@ -1,6 +1,6 @@
 <template>
   <div class="text-block">
-    <h1>{{ componentText }}</h1>
+    <p>{{ componentText }}</p>
   </div>
 </template>
 
@@ -24,4 +24,7 @@
 </script>
 
 <style scoped>
+  .text-block {
+    padding-bottom: 4px;
+  }
 </style>

@@ -36,7 +36,7 @@
 
 <style scoped>
   .adaptive-card {
-    max-width: 900px;
+    max-width: 400px;
     margin: 10px;
     padding: 10px;
     box-shadow: rgba(0, 0, 0, 0.24) 0 3px 8px;

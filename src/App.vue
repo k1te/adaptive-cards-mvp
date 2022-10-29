@@ -24,4 +24,8 @@ body {
   color: #2c3e50;
   margin-top: 60px;
 }
+p {
+  padding: 0;
+  margin: 0;
+}
 </style>
