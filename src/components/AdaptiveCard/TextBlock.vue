@@ -1,11 +1,11 @@
 <template>
   <div class="text-block">
-    <p>{{ componentText }}</p>
+    <p v-html="componentText"/>
   </div>
 </template>
 
 <script>
-  import { parseTemplateLiteral } from '@/utils/index.ts'
+  import { parseMarkdown, parseTemplateLiteral } from '@/utils/index.ts'
 
   export default {
     name: 'TextBlock',
@@ -17,7 +17,7 @@
     },
     computed: {
       componentText() {
-        return parseTemplateLiteral(this.text, this.data)
+        return parseMarkdown(parseTemplateLiteral(this.text, this.data))
       }
     }
   }

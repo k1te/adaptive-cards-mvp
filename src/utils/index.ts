@@ -14,3 +14,8 @@ export function parseTemplateLiteralToString(expression) {
         return value
     })
 }
+
+export function parseMarkdown(text){
+    const bold = /\*\*(.*?)\*\*/gm
+    return text.replace(bold, '<strong>$1</strong>')
+}
