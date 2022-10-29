@@ -9,8 +9,8 @@
 
   export default {
     name: 'Image',
+    inject: ['data'],
     props: {
-      data: Object,
       url: String,
       altText: String,
       size: String,

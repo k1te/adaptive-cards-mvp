@@ -8,7 +8,6 @@
       :facts="component.facts"
       :columns="component.columns"
       :style="component.style"
-      :data="data"
     />
   </div>
 </template>
@@ -28,8 +27,12 @@
     },
     props: {
       template: Object,
-      // TODO: Move data to injection
       data: Object
+    },
+    provide() {
+      return {
+        data: this.data
+      }
     }
   }
 </script>

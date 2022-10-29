@@ -12,9 +12,9 @@
 
   export default {
     name: 'Fact',
+    inject: ['data'],
     props: {
       facts: Array,
-      data: Object,
       fact: Object
     },
     computed: {

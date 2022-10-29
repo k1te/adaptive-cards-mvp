@@ -1,6 +1,6 @@
 <template>
 <div :class="['column-set', `column-style-${style}`]">
-  <column v-for="(column, index) in columns" :key="column.type + index" :items="column.items" :width="column.width" :data="data"/>
+  <column v-for="(column, index) in columns" :key="column.type + index" :items="column.items" :width="column.width"/>
 </div>
 </template>
 
@@ -15,8 +15,7 @@
     props: {
       style: String,
       bleed: Boolean,
-      columns: Array,
-      data: Object
+      columns: Array
     }
   }
 </script>

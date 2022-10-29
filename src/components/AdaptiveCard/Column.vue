@@ -4,7 +4,7 @@
       :key="item.type + index"
       v-bind:is="item.type"
       v-bind="{ ...item, imgStyle: item.style }"
-      :data="data"/>
+      />
   </div>
 </template>
 
@@ -20,8 +20,7 @@
     },
     props: {
       width: String,
-      items: Array,
-      data: Object
+      items: Array
     }
   }
 </script>

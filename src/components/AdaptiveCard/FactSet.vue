@@ -1,7 +1,7 @@
 <template>
   <ul class="fact-set">
     <li class="fact-set-item" v-for="(fact, index) in facts" :key="index">
-      <Fact :data="data" :fact="fact" />
+      <Fact :fact="fact" />
     </li>
   </ul>
 </template>
@@ -15,8 +15,7 @@
       Fact
     },
     props: {
-      facts: Array,
-      data: Object
+      facts: Array
     }
   }
 </script>

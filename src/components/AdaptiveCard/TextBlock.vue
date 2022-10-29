@@ -9,8 +9,8 @@
 
   export default {
     name: 'TextBlock',
+    inject: ['data'],
     props: {
-      data: Object,
       text: String,
       size: String,
       spacing: String
