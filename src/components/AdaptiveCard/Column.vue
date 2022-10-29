@@ -1,5 +1,5 @@
 <template>
-  <div class="column">
+  <div :class="['column', `column-${width}`]">
     <component v-for="(item, index) in items"
       :key="item.type + index"
       v-bind:is="item.type"
