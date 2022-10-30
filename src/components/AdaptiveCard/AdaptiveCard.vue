@@ -7,23 +7,21 @@
       :text="component.text"
       :facts="component.facts"
       :columns="component.columns"
-      :style="component.style"
+      :styleType="component.style"
     />
   </div>
 </template>
 
 <script>
-  // TODO: Dynamic import
-  import ColumnSet from "@/components/AdaptiveCard/ColumnSet";
-  import TextBlock from "@/components/AdaptiveCard/TextBlock";
-  import FactSet from "@/components/AdaptiveCard/FactSet";
+  import { defineAsyncComponent } from 'vue'
 
   export default {
     name: 'AdaptiveCard',
     components: {
-      ColumnSet,
-      TextBlock,
-      FactSet
+      ColumnSet: defineAsyncComponent(() => import('./ColumnSet.vue')),
+      TextBlock: defineAsyncComponent(() => import('./TextBlock.vue')),
+      FactSet: defineAsyncComponent(() => import('./FactSet.vue')),
+      Image: defineAsyncComponent(() => import('./Image.vue'))
     },
     props: {
       template: Object,

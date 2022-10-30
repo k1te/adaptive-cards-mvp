@@ -9,14 +9,15 @@
 </template>
 
 <script>
-  import TextBlock from "@/components/AdaptiveCard/TextBlock"
-  import Image from "@/components/AdaptiveCard/Image"
+  import { defineAsyncComponent } from 'vue'
 
   export default {
     name: 'Column',
     components: {
-      TextBlock,
-      Image
+      ColumnSet: defineAsyncComponent(() => import('./ColumnSet.vue')),
+      TextBlock: defineAsyncComponent(() => import('./TextBlock.vue')),
+      FactSet: defineAsyncComponent(() => import('./FactSet.vue')),
+      Image: defineAsyncComponent(() => import('./Image.vue'))
     },
     props: {
       width: String,
