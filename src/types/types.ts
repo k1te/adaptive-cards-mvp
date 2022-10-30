@@ -1,0 +1,6 @@
+export type Width = 'auto' | 'stretch'
+export type StyleType = 'default' | 'emphasis' | 'accent' | 'good' | 'attention' | 'warning'
+export type ImageSize = 'stretch' | 'small' | 'medium' | 'large'
+export type ImageStyle = 'default' | 'person'
+export type TextBlockSize = 'small' | 'default' | 'medium' | 'large' | 'extraLarge'
+export type Spacing = TextBlockSize | 'padding'

@@ -1,30 +1,29 @@
 <template>
   <div :class="classes">
-    <img :src="componentText" :alt="altText"/>
+    <img :src="imageSrc" :alt="altText || 'No alt text'"/>
   </div>
 </template>
 
-<script>
-  import { parseTemplateLiteralToString } from '@/utils/index.ts'
+<script setup lang="ts">
+  import { computed, defineProps, inject } from 'vue'
+  import { parseTemplateLiteralToString } from '@/utils'
+  import { ImageSize, ImageStyle } from "@/types/types"
 
-  export default {
-    name: 'Image',
-    inject: ['data'],
-    props: {
-      url: String,
-      altText: String,
-      size: String,
-      imgStyle: String
-    },
-    computed: {
-      componentText() {
-        return this.data[parseTemplateLiteralToString(this.url)]
-      },
-      classes() {
-        return ['image', `image-${this.size && this.size.toLowerCase()}`, `image-${this.imgStyle && this.imgStyle.toLowerCase()}`]
-      }
-    }
+  interface IImage {
+    url: string,
+    altText?: string,
+    size?: ImageSize,
+    imgStyle?: ImageStyle
   }
+
+  const props = defineProps<IImage>()
+  const data: object | null = inject('data', null)
+  const imageSrc = computed(() => data ? data[parseTemplateLiteralToString(props.url)] : '')
+  const classes = computed(() => [
+    'image',
+    props.size ? `image-${props.size?.toLowerCase()}` : '',
+    props.imgStyle ? `image-${ props.imgStyle?.toLowerCase()}` : ''
+  ])
 </script>
 
 <style scoped>

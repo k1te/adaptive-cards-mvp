@@ -3,7 +3,7 @@
     <component
       v-for="(component, index) in template.body"
       :key="component.type + index"
-      v-bind:is="component.type"
+      :is="ACComponents[component.type]"
       :text="component.text"
       :facts="component.facts"
       :columns="component.columns"
@@ -12,27 +12,17 @@
   </div>
 </template>
 
-<script>
-  import { defineAsyncComponent } from 'vue'
+<script setup lang="ts">
+  import { defineProps, provide } from 'vue'
+  import { ACComponents } from './DynamicComponents'
 
-  export default {
-    name: 'AdaptiveCard',
-    components: {
-      ColumnSet: defineAsyncComponent(() => import('./ColumnSet.vue')),
-      TextBlock: defineAsyncComponent(() => import('./TextBlock.vue')),
-      FactSet: defineAsyncComponent(() => import('./FactSet.vue')),
-      Image: defineAsyncComponent(() => import('./Image.vue'))
-    },
-    props: {
-      template: Object,
-      data: Object
-    },
-    provide() {
-      return {
-        data: this.data
-      }
-    }
+  interface IAdaptiveCard {
+    template: object,
+    data: object
   }
+
+  const props = defineProps< IAdaptiveCard>()
+  provide('data', props.data)
 </script>
 
 <style scoped>

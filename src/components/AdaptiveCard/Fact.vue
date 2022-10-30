@@ -7,28 +7,24 @@
   </table>
 </template>
 
-<script>
-  import { parseTemplateLiteralToString } from "@/utils/index.ts"
+<script setup lang="ts">
+  import { inject, defineProps, computed } from 'vue'
+  import { parseTemplateLiteralToString } from "@/utils"
 
-  export default {
-    name: 'Fact',
-    inject: ['data'],
-    props: {
-      facts: Array,
-      fact: Object
-    },
-    computed: {
-      fields() {
-        return this.data[parseTemplateLiteralToString(this.fact['$data'])]
-      },
-      title() {
-        return parseTemplateLiteralToString(this.fact['title'])
-      },
-      value() {
-        return parseTemplateLiteralToString(this.fact['value'])
-      }
-    }
+  export interface IFact {
+    '$data': string,
+    title: string,
+    value: string
   }
+
+  const props = defineProps<{
+    fact: IFact
+  }>()
+
+  const data: object | null = inject('data', null)
+  const fields = computed(() => data ? data[parseTemplateLiteralToString(props.fact['$data'])] : '')
+  const title = computed(() => parseTemplateLiteralToString(props.fact['title']))
+  const value = computed(() => parseTemplateLiteralToString(props.fact['value']))
 </script>
 
 <style scoped>

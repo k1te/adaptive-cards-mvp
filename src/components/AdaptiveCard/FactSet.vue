@@ -6,23 +6,20 @@
   </ul>
 </template>
 
-<script>
-  import Fact from './Fact'
+<script setup lang="ts">
+  import { defineProps } from "vue";
+  import Fact from './Fact.vue'
+  import { IFact } from "./Fact.vue";
 
-  export default {
-    name: 'FactSet',
-    components: {
-      Fact
-    },
-    props: {
-      facts: Array
-    }
-  }
+  defineProps<{
+    facts: IFact[]
+  }>()
 </script>
 
 <style scoped>
   .fact-set {
     padding: 0;
+    margin: 0;
     list-style: none;
   }
 </style>

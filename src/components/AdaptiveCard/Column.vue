@@ -2,28 +2,26 @@
   <div :class="['column', `column-${width}`]">
     <component v-for="(item, index) in items"
       :key="item.type + index"
-      v-bind:is="item.type"
+      v-bind:is="ACComponents[item.type]"
       v-bind="{ ...item, imgStyle: item.style }"
       />
   </div>
 </template>
 
-<script>
-  import { defineAsyncComponent } from 'vue'
+<script setup lang="ts">
+  import { defineProps } from 'vue'
+  import { ACComponents } from './DynamicComponents'
+  import { Width } from "@/types/types"
 
-  export default {
-    name: 'Column',
-    components: {
-      ColumnSet: defineAsyncComponent(() => import('./ColumnSet.vue')),
-      TextBlock: defineAsyncComponent(() => import('./TextBlock.vue')),
-      FactSet: defineAsyncComponent(() => import('./FactSet.vue')),
-      Image: defineAsyncComponent(() => import('./Image.vue'))
-    },
-    props: {
-      width: String,
-      items: Array
-    }
+  interface IItem {
+    type: string,
+    style: string
   }
+
+  defineProps<{
+    width?: Width,
+    items: IItem[]
+  }>()
 </script>
 
 <style scoped>

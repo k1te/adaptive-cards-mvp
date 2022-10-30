@@ -1,26 +1,28 @@
 <template>
-  <div class="text-block">
+  <div :class="classes">
     <p v-html="componentText"/>
   </div>
 </template>
 
-<script>
-  import { parseMarkdown, parseTemplateLiteral } from '@/utils/index.ts'
+<script setup lang="ts">
+  import { defineProps, inject, computed } from 'vue'
+  import { parseMarkdown, parseTemplateLiteral } from '@/utils'
+  import { TextBlockSize, Spacing } from "@/types/types";
 
-  export default {
-    name: 'TextBlock',
-    inject: ['data'],
-    props: {
-      text: String,
-      size: String,
-      spacing: String
-    },
-    computed: {
-      componentText() {
-        return parseMarkdown(parseTemplateLiteral(this.text, this.data))
-      }
-    }
+  interface ITextBlock {
+    text: string,
+    size?: TextBlockSize,
+    spacing?: Spacing
   }
+
+  const props = defineProps<ITextBlock>()
+  const data: object = inject('data', {})
+  const componentText = computed(() => parseMarkdown(parseTemplateLiteral(props.text, data)))
+  const classes = computed(() => [
+    'text-block',
+    props.size ? `text-size-${props.size}` : '',
+    props.spacing ? `text-spacing-${props.spacing}` : ''
+  ])
 </script>
 
 <style scoped>

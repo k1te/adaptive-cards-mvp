@@ -5,21 +5,12 @@
   />
 </template>
 
-<script>
-  import AdaptiveCard from '../components/AdaptiveCard/index.ts'
-  import EmployeeCardTemplate from '../api/EmployeeCardTemplate.json'
-  import EmployeeData from '../api/EmployeeData.json'
+<script setup lang="ts">
+  import { reactive } from 'vue'
+  import AdaptiveCard from '../components/AdaptiveCard'
+  import EmployeeCardTemplate from '@/api/EmployeeCardTemplate.json'
+  import EmployeeData from '@/api/EmployeeData.json'
 
-  export default {
-    name: 'Home',
-    components: {
-      AdaptiveCard
-    },
-    data() {
-      return {
-        template: EmployeeCardTemplate,
-        data: EmployeeData
-      }
-    }
-  }
+  const template = reactive(EmployeeCardTemplate)
+  const data = reactive(EmployeeData)
 </script>
