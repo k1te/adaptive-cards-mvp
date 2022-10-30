@@ -24,7 +24,9 @@
   }>()
 </script>
 
-<style scoped>
+<style lang="scss" scoped>
+  @import '../../styles/variables';
+
   .column {
     display: flex;
     flex-direction: column;
@@ -33,11 +35,11 @@
     min-width: 0;
     padding: 0;
     margin: 0;
-  }
-  .column-auto {
-    flex: 0 1 auto;
-  }
-  .column-stretch {
-    flex: 1 1 50px;
+    &-auto {
+      flex: 0 1 auto;
+    }
+    &-stretch {
+      flex: 1 1 50px;
+    }
   }
 </style>

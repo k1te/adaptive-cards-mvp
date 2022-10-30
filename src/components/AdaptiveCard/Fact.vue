@@ -1,7 +1,7 @@
 <template>
   <table class="fact">
     <tr v-for="(field, index) in fields" :key="index">
-      <td class="title">{{ field[title] }}</td>
+      <td class="title"><strong>{{ field[title] }}</strong></td>
       <td class="value">{{ field[value] }}</td>
     </tr>
   </table>
@@ -27,11 +27,10 @@
   const value = computed(() => parseTemplateLiteralToString(props.fact['value']))
 </script>
 
-<style scoped>
-  .title {
-    font-weight: bold;
-  }
+<style lang="scss" scoped>
+  @import '../../styles/variables';
+
   .value {
-    padding: 0 10px;
+    padding: 0 $padding;
   }
 </style>

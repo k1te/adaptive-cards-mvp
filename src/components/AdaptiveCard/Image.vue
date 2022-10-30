@@ -21,21 +21,28 @@
   const imageSrc = computed(() => data ? data[parseTemplateLiteralToString(props.url)] : '')
   const classes = computed(() => [
     'image',
-    props.size ? `image-${props.size?.toLowerCase()}` : '',
-    props.imgStyle ? `image-${ props.imgStyle?.toLowerCase()}` : ''
+    typeof props.size === 'string' ? `image-${props.size?.toLowerCase()}` : '',
+    typeof props.imgStyle === 'string' ? `image-${ props.imgStyle?.toLowerCase()}` : ''
   ])
 </script>
 
-<style scoped>
-  .image img {
-    display: block;
+<style lang="scss" scoped>
+  @import '../../styles/variables';
+
+  .image {
+    img {
+      display: block;
+      width: 80px;
+      height: 80px;
+    }
+    &-person {
+      border-radius: 50%;
+      overflow: hidden;
+    }
+    &-small img {
+      width: 40px;
+      height: 40px;
+    }
   }
-  .image-person {
-    border-radius: 50%;
-    overflow: hidden;
-  }
-  .image-small img {
-    width: 40px;
-    height: 40px;
-  }
+
 </style>

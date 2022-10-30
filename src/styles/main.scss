@@ -1,0 +1,15 @@
+@import "./variables";
+
+body {
+  background-color: $light-blue;
+}
+#app {
+  font-family: Roboto, Helvetica, Arial, sans-serif;
+  color: #2c3e50;
+  margin-top: 60px;
+  font-size: 14px;
+}
+p {
+  padding: 0;
+  margin: 0;
+}

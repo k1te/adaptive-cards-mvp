@@ -16,7 +16,7 @@
   }>()
 </script>
 
-<style scoped>
+<style lang="scss" scoped>
   .fact-set {
     padding: 0;
     margin: 0;

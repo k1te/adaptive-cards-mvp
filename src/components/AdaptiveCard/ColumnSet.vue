@@ -24,22 +24,24 @@
   const props = defineProps<IColumns>()
   const classes = computed(() => [
     'column-set',
-    props.styleType ? `column-style-${props.styleType}` : '',
+    typeof props.styleType === 'string' ? `column-style-${props.styleType}` : '',
     props.bleed ? 'column-bleed' : ''
   ])
 </script>
 
-<style scoped>
+<style lang="scss" scoped>
+  @import '../../styles/variables';
+
   .column-set {
     display: flex;
     justify-content: flex-start;
     box-sizing: border-box;
     flex: 0 0 auto;
-    padding: 10px;
-    margin: -10px -10px 4px;
-
+    padding: $padding;
+    margin: (-$padding) (-$padding) $padding-sm;
+    gap: $padding;
   }
   .column-style-accent {
-    background-color: #D7E7FA;
+    background-color: $accent;
   }
 </style>

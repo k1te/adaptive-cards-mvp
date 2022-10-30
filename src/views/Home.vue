@@ -1,8 +1,13 @@
 <template>
-  <AdaptiveCard
-    :template="template"
-    :data="data"
-  />
+  <section class="home">
+    <h1>Adaptive Cards Templating MVP</h1>
+    <article>
+      <AdaptiveCard
+        :template="template"
+        :data="data"
+      />
+    </article>
+  </section>
 </template>
 
 <script setup lang="ts">
@@ -14,3 +19,13 @@
   const template = reactive(EmployeeCardTemplate)
   const data = reactive(EmployeeData)
 </script>
+
+<style lang="scss" scoped>
+  @import '../styles/variables';
+
+  .home {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+</style>

@@ -20,13 +20,34 @@
   const componentText = computed(() => parseMarkdown(parseTemplateLiteral(props.text, data)))
   const classes = computed(() => [
     'text-block',
-    props.size ? `text-size-${props.size}` : '',
-    props.spacing ? `text-spacing-${props.spacing}` : ''
+    typeof props.size === 'string' ? `text-size-${props.size.toLocaleLowerCase()}` : '',
+    typeof props.spacing === 'string' ? `text-spacing-${props.spacing.toLocaleLowerCase()}` : ''
   ])
 </script>
 
-<style scoped>
-  .text-block {
-    padding-bottom: 4px;
+<style lang="scss" scoped>
+  @import '../../styles/variables';
+
+  .text {
+    &-block {
+      padding-bottom: $padding-sm;
+    }
+    &-size {
+      &-small {
+        font-size: 0.8em;
+      }
+      &-default {
+        font-size: 1em;
+      }
+      &-medium {
+        font-size: 1.2em;
+      }
+      &-large {
+        font-size: 1.5em;
+      }
+      &-extralarge {
+        font-size: 2.0em;
+      }
+    }
   }
 </style>

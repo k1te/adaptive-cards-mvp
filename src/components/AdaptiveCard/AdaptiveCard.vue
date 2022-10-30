@@ -25,12 +25,16 @@
   provide('data', props.data)
 </script>
 
-<style scoped>
+<style lang="scss" scoped>
+  @import '../../styles/variables';
+
   .adaptive-card {
-    max-width: 400px;
-    margin: 10px;
-    padding: 10px;
-    box-shadow: rgba(0, 0, 0, 0.24) 0 3px 8px;
-    background-color: #fff;
+    min-width: 400px;
+    max-width: 600px;
+    overflow: hidden;
+    margin: $padding;
+    padding: $padding;
+    box-shadow: $shadow-thin;
+    background-color: $white;
   }
 </style>
