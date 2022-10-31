@@ -8,8 +8,9 @@
   import { defineProps, inject, computed } from 'vue'
   import { parseMarkdown, parseTemplateLiteral } from '@/utils'
   import { TextBlockSize, Spacing } from "@/types/types";
+  import { ACBaseComponent } from "@/types/interfaces"
 
-  interface ITextBlock {
+  interface ITextBlock extends ACBaseComponent {
     text: string,
     size?: TextBlockSize,
     spacing?: Spacing

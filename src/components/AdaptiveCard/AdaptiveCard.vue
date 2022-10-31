@@ -1,7 +1,7 @@
 <template>
   <div class="adaptive-card">
     <component
-      v-for="(component, index) in template.body"
+      v-for="(component, index) in card"
       :key="component.type + index"
       :is="ACComponents[component.type]"
       :text="component.text"
@@ -14,15 +14,17 @@
 </template>
 
 <script setup lang="ts">
-  import { defineProps, provide } from 'vue'
+  import { computed, defineProps, provide } from 'vue'
   import { ACComponents } from './DynamicComponents'
+  import { ACTemplate } from "@/types/interfaces"
 
   interface IAdaptiveCard {
-    template: object,
+    template: ACTemplate,
     data: object
   }
 
   const props = defineProps< IAdaptiveCard>()
+  const card = computed(() => props.template?.body || [])
   provide('data', props.data)
 </script>
 

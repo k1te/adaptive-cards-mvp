@@ -1,3 +1,4 @@
+export type ComponentType = 'ColumnSet' | 'Column' | 'TextBlock' | 'FactSet' | 'Fact'
 export type Width = 'auto' | 'stretch'
 export type StyleType = 'default' | 'emphasis' | 'accent' | 'good' | 'attention' | 'warning'
 export type ImageSize = 'stretch' | 'small' | 'medium' | 'large'

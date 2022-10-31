@@ -8,8 +8,9 @@
   import { computed, defineProps, inject } from 'vue'
   import { parseTemplateLiteralToString } from '@/utils'
   import { ImageSize, ImageStyle } from "@/types/types"
+  import { ACBaseComponent } from "@/types/interfaces";
 
-  interface IImage {
+  interface IImage extends ACBaseComponent {
     url: string,
     altText?: string,
     size?: ImageSize,

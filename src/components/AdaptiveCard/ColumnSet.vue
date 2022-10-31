@@ -1,6 +1,6 @@
 <template>
 <div :class="classes">
-  <column v-for="(column, index) in columns" :key="column.type + index" :items="column.items" :width="column.width"/>
+  <column v-for="(column, index) in columnsArray" :key="column.type + index" :items="column.items" :width="column.width"/>
 </div>
 </template>
 
@@ -8,20 +8,16 @@
   import { computed, defineProps } from 'vue'
   import Column from './Column.vue'
   import { StyleType } from '@/types/types'
+  import { IColumn } from "@/types/interfaces"
 
-  interface IColumn {
-    type: string,
-    items: object[],
-    width: string
-  }
-
-  interface IColumns {
+  export interface IColumns {
     styleType?: StyleType,
     bleed?: boolean,
     columns: IColumn[]
   }
 
   const props = defineProps<IColumns>()
+  const columnsArray = computed(() => props.columns)
   const classes = computed(() => [
     'column-set',
     typeof props.styleType === 'string' ? `column-style-${props.styleType}` : '',

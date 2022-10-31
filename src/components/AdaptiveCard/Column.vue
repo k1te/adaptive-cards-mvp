@@ -12,15 +12,11 @@
   import { defineProps } from 'vue'
   import { ACComponents } from './DynamicComponents'
   import { Width } from "@/types/types"
-
-  interface IItem {
-    type: string,
-    style: string
-  }
+  import { ACComponent } from "@/types/interfaces"
 
   defineProps<{
     width?: Width,
-    items: IItem[]
+    items: ACComponent[]
   }>()
 </script>
 
