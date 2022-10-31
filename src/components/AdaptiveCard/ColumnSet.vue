@@ -32,16 +32,38 @@
 <style lang="scss" scoped>
   @import '../../styles/variables';
 
-  .column-set {
-    display: flex;
-    justify-content: flex-start;
-    box-sizing: border-box;
-    flex: 0 0 auto;
-    padding: $padding;
-    margin: (-$padding) (-$padding) $padding-sm;
-    gap: $padding;
-  }
-  .column-style-accent {
-    background-color: $accent;
+  .column {
+    &-set {
+      display: flex;
+      justify-content: flex-start;
+      box-sizing: border-box;
+      flex: 0 0 auto;
+      padding: $padding;
+      margin-bottom: $padding-sm;
+      gap: $padding;
+    }
+    &-bleed {
+      margin: (-$padding) (-$padding) $padding-sm;
+    }
+    &-style {
+      &-default {
+        background-color: $white;
+      }
+      &-accent {
+        background-color: $accent;
+      }
+      &-good {
+        background-color: $green;
+      }
+      &-emphasis{
+        background-color: $light-blue;
+      }
+      &-attention {
+        background-color: $pink;
+      }
+      &-warning {
+        background-color: $yellow;
+      }
+    }
   }
 </style>

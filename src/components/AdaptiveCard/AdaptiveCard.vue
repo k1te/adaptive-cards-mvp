@@ -8,6 +8,7 @@
       :facts="component.facts"
       :columns="component.columns"
       :styleType="component.style"
+      :bleed="component.bleed"
     />
   </div>
 </template>
