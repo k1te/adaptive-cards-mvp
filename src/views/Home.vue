@@ -12,7 +12,7 @@
 
 <script setup lang="ts">
   import { reactive } from 'vue'
-  import AdaptiveCard from '../components/AdaptiveCard'
+  import AdaptiveCard from '../components/AdaptiveCard.vue'
   import EmployeeCardTemplate from '@/api/EmployeeCardTemplate.json'
   import EmployeeData from '@/api/EmployeeData.json'
 

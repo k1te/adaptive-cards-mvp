@@ -10,7 +10,7 @@
 
 <script setup lang="ts">
   import { defineProps } from 'vue'
-  import { ACComponents } from './DynamicComponents'
+  import { ACComponents } from '../DynamicComponents'
   import { Width } from "@/types/types"
   import { ACComponent } from "@/types/interfaces"
 

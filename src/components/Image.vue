@@ -28,7 +28,7 @@
 </script>
 
 <style lang="scss" scoped>
-  @import '../../styles/variables';
+  @import '../styles/variables';
 
   .image {
     img {

@@ -1,6 +1,6 @@
 import {ComponentType, StyleType, Width} from "@/types/types";
-import { IFact } from "@/components/AdaptiveCard/Fact.vue";
-import { IColumns } from "@/components/AdaptiveCard/ColumnSet.vue";
+import { IFact } from "@/components/FactSet/Fact.vue";
+import { IColumns } from "@/components/ColumnSet/ColumnSet.vue";
 
 export interface ACBaseComponent {
     type: ComponentType,

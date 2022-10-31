@@ -29,7 +29,7 @@
 </script>
 
 <style lang="scss" scoped>
-  @import '../../styles/variables';
+  @import '../styles/variables';
 
   .adaptive-card {
     min-width: 400px;
